@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<books>
+    <book sn="sn2343243545">
+        <name>java基础</name>
+        <author>Jason</author>
+        <price>75</price>
+    </book>
+    <book sn="sn3456565">
+        <name>python基础</name>
+        <author>curry</author>
+        <price>65</price>
+    </book>
+    <book sn="sn76756765">
+        <name>javaScript基础</name>
+        <author>Tom</author>
+        <price>55</price>
+    </book>
+    <book sn="sn6546435">
+        <name>敏捷指南</name>
+        <author>Lucy</author>
+        <price>45</price>
+    </book>
+</books>

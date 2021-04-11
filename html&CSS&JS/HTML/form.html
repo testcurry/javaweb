@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单重点</title>
+</head>
+<body>
+    <form>
+        <h1 align="center">用户注册</h1>
+        <table align="center">
+            <tr>
+                <td>用户名称：</td>
+                <td><input type="text" value="Test1204" maxlength="20" ></td>
+            </tr>
+            <tr>
+                <td>用户密码：</td>
+                <td><input type="password" maxlength="20"></td>
+            </tr>
+            <tr>
+                <td>确认密码：</td>
+                <td><input type="password" maxlength="20"></td>
+            </tr>
+            <tr>
+                <td>性别:</td>
+                <td>
+                    <input type="radio" name="sex" checked="checked">男
+                    <input type="radio" name="sex">女
+                </td>
+            </tr>
+            <tr>
+                <td>兴趣爱好：</td>
+                <td>
+                    <input type="checkbox" checked="checked"> java
+                    <input type="checkbox" checked="checked">javascript
+                    <input type="checkbox">python
+                </td>
+            </tr>
+            <tr>
+                <td>国籍：</td>
+                <td>
+                    <select>
+                    <option>---请选择国籍---</option>
+                    <option selected="selected">中国</option>
+                    <option>美国</option>
+                    <option>日本</option>
+                    </select>
+                <td/>
+            </tr>
+            <tr>
+                <td>自我评价：</td>
+                <td>
+                    <textarea rows="10" cols="20">我才是默认值</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <input type="reset" value="重置">
+                </td>
+                <td align="center">
+                    <input type="submit" value="提交">
+                </td>
+            </tr>
+        </table>
+<!--        用户名称：<input type="text" value="username" maxlength="20" ><br>-->
+<!--        用户密码：<input type="password" maxlength="20"><br>-->
+<!--        确认密码：<input type="password" maxlength="20"><br>-->
+<!--        性别:<input type="radio" name="sex" checked="checked">男 <input type="radio" name="sex">女<br>-->
+<!--        兴趣爱好：<input type="checkbox" checked="checked"> java<input type="checkbox" checked="checked">javascript <input type="checkbox">python<br>-->
+<!--        国籍：<select>-->
+<!--                 <option>-&#45;&#45;请选择国籍-&#45;&#45;</option>-->
+<!--                 <option selected="selected">中国</option>-->
+<!--                 <option>美国</option>-->
+<!--                 <option>日本</option>-->
+<!--             </select><br><br>-->
+<!--        自我评价：<textarea rows="10" cols="20">我才是默认值</textarea><br>-->
+<!--        <input type="reset" value="这是重置按钮"><br>-->
+<!--        <input type="submit" value="这是提交按钮" tar="https://www.baidu.com"><br/>-->
+
+<!--&lt;!&ndash;        其他标签&ndash;&gt;-->
+<!--        <input type="button" value="这是个按钮"><br/>-->
+<!--        <input type="file">-->
+<!--        &lt;!&ndash; 隐藏域，提交的时候会发给服务器，当我们有些信息不想要用户看到时可以使用隐藏域&ndash;&gt;-->
+<!--        <input type="hidden">-->
+    </form>
+</body>
+</html>

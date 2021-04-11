@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+    <script type="text/javascript">
+        function onclickFun(){
+            let username = document.getElementById("username");
+            let name = username.value;
+            // alert(name);
+            var patt=/^\w{5,12}$/;
+            let result = patt.test(name);
+            if (result){
+                alert("用户名合法！");
+            }else {
+                alert("用户名不合法！");
+            }
+        }
+    </script>
+</head>
+<body>
+    用户名称：<input id="username" type="text" value="test">
+    <button onclick="onclickFun();">校验</button>
+</body>
+</html>

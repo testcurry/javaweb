@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>两种常见的校验提示</title>
+    <script type="text/javascript">
+        function onclickFun(){
+            let username = document.getElementById("username");
+                var patt=/^\w{5,12}$/;
+                let name = username.value;
+                let result = patt.test(name);
+                if (result){
+                    // alert("用户名合法！");
+                    let tip = document.getElementById("tip");
+                    //方式一文字提示
+                    // tip.innerHTML="用户名合法！";
+                    //方式一图片提示
+                    tip.innerHTML="<img src=\"right.jpeg\" width=\"24\" height=\"24\"align=\"center\">";
+                }else {
+                    // alert("用户名不合法！");
+                    let tip = document.getElementById("tip");
+                    //方式一文字提示
+                    // tip.innerHTML="用户名不合法!";
+                    //方式二图片提示
+                    tip.innerHTML="<img src=\"wrong.jpeg\" width=\"18\" height=\"18\" align='center'>";
+                }
+        }
+    </script>
+</head>
+<body>
+    用户名：<input id="username" type="text">
+<!--    <span style="color: red" id="tip"></span>-->
+    <span id="tip">
+<!--        <img src="wrong.jpeg" height="18" width="18" align="center">-->
+    </span>
+    <button onclick="onclickFun();">校验</button>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dom的其他方法</title>
+    <script type="text/javascript">
+        window.onload=function (){
+            let divObj = document.createElement("div");
+            // alert(divObj);
+            //第一种添加文本节点的方式
+            // divObj.innerHTML="curry我爱你！";
+            //第二种添加文本节点的方式
+            var textNode=document.createTextNode("curry我爱你！");
+            divObj.appendChild(textNode);
+            document.body.appendChild(divObj);
+        }
+    </script>
+</head>
+<body>
+<!--    <div>curry我爱你！</div>-->
+</body>
+</html>

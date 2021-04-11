@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery的helloWorld</title>
+    <script type="text/javascript" src="scripts/jquery-3.5.1.js"></script>
+    <script type="text/javascript">
+        //1、之前的方式
+        // window.onload=function (){
+        //     let btnObj = document.getElementById("btn01");
+        //     btnObj.onclick=function (){
+        //         alert("按钮绑定单击事件");
+        //     }
+        // }
+        // alert($);
+
+        //2、用jQuery给按钮绑定单机事件
+        $(function () {
+            var $btnObj = $("#btn01");
+            $btnObj.click(function () {
+                alert("jQuery的单击事件！");
+            })
+        })
+
+
+    </script>
+</head>
+<body>
+<button id="btn01" type="button">SayHello</button>
+</body>
+</html>

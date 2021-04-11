@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>submit事件</title>
+    <script type="text/javascript">
+        function submitFun(){
+            alert("静态注册！");
+            return false;
+        };
+        window.onload=function (){
+            let submitObj = document.getElementById("btn02");
+            submitObj.onsubmit=function (){
+                alert("动态注册！");
+                return false;
+            }
+        };
+    </script>
+</head>
+<body>
+    <form action="http://localhost:8080/" method="get" onsubmit="return submitFun();">
+        <input type="submit" value="静态注册"></input>
+    </form><br>
+    <form  id="btn02" action="http://localhost:8080/" method="get">
+        <input type="submit" value="动态注册"></input>
+    </form>
+</body>
+</html>

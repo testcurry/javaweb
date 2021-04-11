@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则表达式</title>
+    <script type="text/javascript">
+        //表示正则表达式中是否包含字母e
+        // var patt=new RegExp("e");
+        // alert(patt);
+        // var patt=/e/;
+        //表示表达式中是否包含字母a或b或c
+        // var patt=/[a,b,e]/;
+        //表示表达式中是否包含任意小写字母
+        // var patt=/[a-z]/;
+        //表示表达式中是否包含任意大写字母
+        // var patt=/[A-Z]/;
+        //表示表达式中是否包含任意数字
+        // var patt=/[0-9]/;
+        //是否包含数字，大写字母，小写字母和下划线_中任意一种
+        // var patt=/\w/;
+        //表示是否包含一个或多个字母a
+        // var patt=/a+/;
+        //表示是否包含0个或多个字母a
+        // var patt=/a*/;
+        //表示是否包含0个或1个字母a
+        // var patt=/a?/;
+        //表示是否包含连续三个字母a
+        // var patt=/a{3}/;
+        //表示是否包含三个连续字母a或5个连续字母a
+        // var patt=/a{3,5}/;
+        //表示是否包含至少三个连续字母a
+        // var patt=/a{3,}/;
+        //表示字符串必须以a结尾
+        // var patt=/a$/;
+        //表示字符串必须以a开头
+        // var patt=/^a/;
+        //
+        //
+        // var str="afaa111454asadfa";
+        // alert(patt.test(str));
+
+        //注意：
+        // 表示是否包含三个连续字母a或5个连续字母a,最大什么时候有用？？？
+        //字符串从头到尾必须完全匹配，从头到尾必须只能是3-5个连续的a，不能又其他的字符
+        // var patt=/^a{3,5}$/;
+        //从头到尾必须包含5-12位的字母，数字，下划线，不能包含其他字符
+        var patt=/^\w{5,12}$/;
+        var str1="aaaaa34tet]]";
+        alert(patt.test(str1));//false
+    </script>
+</head>
+<body>
+
+</body>
+</html>

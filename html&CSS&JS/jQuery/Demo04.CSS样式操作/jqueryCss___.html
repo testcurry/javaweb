@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Insert title here</title>
+    <style type="text/css">
+
+        div {
+            width: 100px;
+            height: 260px;
+        }
+
+        div.whiteborder {
+            border: 2px white solid;
+        }
+
+        div.redDiv {
+            background-color: red;
+        }
+
+        div.blueBorder {
+            border: 5px blue solid;
+        }
+
+    </style>
+
+    <script type="text/javascript" src="../scripts/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            var $divEle=$("div:first");
+            //添加样式
+            $("#btn01").click(function () {
+                $divEle.addClass("redDiv blueBorder");
+            })
+            //删除样式
+            $("#btn02").click(function () {
+                $divEle.removeClass("redDiv blueBorder");
+            })
+            //有就删除该样式，没有就添加该样式
+            $("#btn03").click(function (){
+                $divEle.toggleClass("redDiv");
+            });
+            $("#btn04").click(function () {
+               var $offset = $divEle.offset();
+               // console.log(offset);
+                $divEle.offset({
+                    top:100,
+                    left:100
+                });
+            });
+        })
+
+    </script>
+</head>
+<body>
+<table align="center">
+    <tr>
+        <td>
+            <div class="border">
+            </div>
+        </td>
+
+        <td>
+            <div class="btn">
+                <input type="button" value="addClass()" id="btn01"/>
+                <input type="button" value="removeClass()" id="btn02"/>
+                <input type="button" value="toggleClass()" id="btn03"/>
+                <input type="button" value="offset()" id="btn04"/>
+            </div>
+        </td>
+    </tr>
+</table>
+
+
+<br/> <br/>
+
+
+<br/> <br/>
+
+
+</body>
+</html>

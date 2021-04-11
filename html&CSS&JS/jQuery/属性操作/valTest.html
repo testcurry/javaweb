@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>练习val方法</title>
+    <script type="text/javascript" src="../scripts/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+          /*  //操作单选框
+            $(":radio").val(["woman"]);
+            //操作复选框
+            $(":checkbox").val(["java","js"]);
+            //操作多选下拉列表
+            $("#sel01").val(["上海","北京"]);
+            //操作单选下拉列表
+            $("#sel02").val("harden");*/
+
+            //一次性操作多个类型的元素
+            $(":radio,:checkbox,#sel01,#sel02").val(["man","python","java","curry","广州","上海"]);
+        })
+    </script>
+</head>
+<body>
+    <h3>复选框</h3>
+   <input type="checkbox" value="java">java
+    <input type="checkbox" value="js">javaScript
+    <input type="checkbox" value="python">python
+    </br>
+    <h3>单选框</h3>
+    <input type="radio" name="sex" value="man">男
+    <input type="radio" name="sex" value="woman">女
+    <h3>多选下拉列表</h3>
+    <select id="sel01" multiple="multiple">
+        <option>---请选择你的城市---</option>
+        <option>广州</option>
+        <option>北京</option>
+        <option>上海</option>
+    </select>
+   </br>
+    <h3>单选下拉列表</h3>
+    <select id="sel02">
+        <option>---请选择你喜欢的球星---</option>
+        <option>curry</option>
+        <option>Tom</option>
+        <option>harden</option>
+    </select>
+</body>
+</html>

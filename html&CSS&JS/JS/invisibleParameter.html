@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>隐形参数</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // function fun() {
+        //     alert(arguments.length);
+        //     for (var i=0;i<arguments.length;i++){
+        //         alert(arguments[i]);
+        //     }
+        // }
+        // fun(1,2,3,"asfd",true);
+        function sum(a,b){
+            var result=0;
+            for (var i=0;i<arguments.length;i++){
+                if (typeof (arguments[i])=="number")
+                result+=arguments[i];
+            }
+            return result;
+        }
+        var sum1 = sum(1,11,"rwer",11,1,1);
+        alert(sum1);
+
+    </script>
+</body>
+</html>

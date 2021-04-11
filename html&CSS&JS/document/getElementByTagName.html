@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>通过标签名查询</title>
+    <script type="text/javascript">
+      function checkAll(){
+            let inputs = document.getElementsByTagName("input");
+            for (var i=0;i<inputs.length;i++){
+                inputs[i].checked=true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="checkbox" name="hobby" value="java">java
+    <input type="checkbox" name="hobby" value="js">javaScript
+    <input type="checkbox" name="hobby" value="py">python<br>
+    <button onclick="checkAll();">全选</button>
+</body>
+</html>

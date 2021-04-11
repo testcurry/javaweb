@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>练习prop和attr方法</title>
+    <script type="text/javascript" src="../scripts/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+        /*
+        * attr:不推荐操作checked,disabled,selected,readonly等等
+        *       可以操作自定义的属性
+        * prop:推荐只操作这些checked,disabled,selected,readonly属性等等
+        *
+        * */
+
+        $(function () {
+            // alert($(":checkbox:first").attr("name"));
+            $(":checkbox:first").attr("name","javaNB!");
+            // alert($(":checkbox").attr("checked"));
+            // alert($(":checkbox").prop("checked"));
+            $(":checkbox").prop("checked",true);
+        })
+    </script>
+</head>
+<body>
+    <h3>复选框</h3>
+   <input type="checkbox" value="java"  checked=“checked” name="checkbox1">java
+    <input type="checkbox" value="js" name="checkbox2">javaScript
+    <input type="checkbox" value="python" name="checkbox3">python
+</body>
+</html>

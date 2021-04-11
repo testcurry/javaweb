@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习HTML和text方法</title>
+    <script type="text/javascript" src="../scripts/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //获取起始标签到结束标签中的内容
+            // let $html = $("div").html();
+            // alert($html);
+            //设置起始标签到结束标签中的内容
+            // $("div").html("<h1>我是div中的标题标签</h1");
+            //获取起始标签到结束标签的内容
+            // let $text = $("div").text();
+            // alert($text);
+            // $("div").text("<h1>我是标题1</h1>");
+            $("#btn").click(function () {
+                // alert($("#username").val());
+                $("#username").val("curryNB!");
+            })
+        })
+    </script>
+</head>
+<body>
+    <div>我是div标签<span>我是div的span标签</span></div>
+    <input type="text" name="usernam" id="username">
+    <button id="btn">操作输入框</button>
+</body>
+</html>

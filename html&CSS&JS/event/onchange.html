@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态和静态注册onchange事件</title>
+    <script type="text/javascript">
+        function onchangeFun(){
+            alert("静态注册，男神改变了！");
+        }
+        window.onload=function (){
+            let selObj = document.getElementById("sel01");
+            selObj.onchange=function (){
+                alert("动态注册,男生改变了！")
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>请选择你心目中的男神：</h3>
+    <select onchange="onchangeFun();">
+        <option>---请选择你心目中的男神---</option>
+        <option>curry</option>
+        <option>林俊杰</option>
+        <option>周杰伦</option>
+    </select>
+    <select id="sel01">
+        <option>---请选择你心目中的男神---</option>
+        <option>curry</option>
+        <option>林俊杰</option>
+        <option>周杰伦</option>
+    </select>
+</body>
+</html>

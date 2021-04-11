@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js对象</title>
+    <script type="text/javascript">
+
+        var object = new Object();
+        alert(object);
+        object.name="tom";
+        object.age=18;
+        alert(object.name);
+        object.fun=function (){
+            alert("姓名:"+this.name+",年龄:"+this.age);
+        }
+        object.fun();
+    </script>
+</head>
+<body>
+
+</body>
+</html>

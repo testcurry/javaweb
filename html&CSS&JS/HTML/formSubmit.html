@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单重点</title>
+</head>
+<body>
+    <form action="http://localhost:8080/" method="post">
+        <input type="hidden" name="action" value="login">
+        <h1 align="center">用户注册</h1>
+        <table align="center">
+            <tr>
+                <td>用户名称：</td>
+                <td><input name="username" type="text" value="Test1204" maxlength="20" ></td>
+            </tr>
+            <tr>
+                <td>用户密码：</td>
+                <td><input name="password" type="password" maxlength="20"></td>
+            </tr>
+            <tr>
+                <td>性别:</td>
+                <td>
+                    <input type="radio" name="sex" checked="checked" value="boy">男
+                    <input type="radio" name="sex" value="girl">女
+                </td>
+            </tr>
+            <tr>
+                <td>兴趣爱好：</td>
+                <td>
+                    <input name="hobby" type="checkbox" checked="checked" value="java"> java
+                    <input name="hobby" type="checkbox" checked="checked" value="JS">javascript
+                    <input name="hobby" type="checkbox" value="PY">python
+                </td>
+            </tr>
+            <tr>
+                <td>国籍：</td>
+                <td>
+                    <select  name="country">
+                    <option value="none">---请选择国籍---</option>
+                    <option value="cn" selected="selected">中国</option>
+                    <option value="usa">美国</option>
+                    <option value="jp">日本</option>
+                    </select>
+                <td/>
+            </tr>
+            <tr>
+                <td>自我评价：</td>
+                <td>
+                    <textarea name="desc" rows="10" cols="20">我才是默认值</textarea>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <input type="reset" value="重置">
+                </td>
+                <td align="center">
+                    <input type="submit" value="提交">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>静态和动态注册onload事件</title>
+    <script type="text/javascript">
+        function fun() {
+            alert("静态注册onload事件,干了很多事情！")
+        }
+
+        window.onload = function fun() {
+            alert("动态注册onload事件")
+        }
+    </script>
+</head>
+<!--<body onload="alert('静态绑定onload事件hello');">-->
+<!--<body onload="fun();">-->
+<body>
+
+</body>
+</html>
