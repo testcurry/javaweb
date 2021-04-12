@@ -1,20 +1,54 @@
 package com.testcy.servlet;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
+import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
-public class HelloServlet extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        PrintWriter writer = resp.getWriter();
-        writer.println("hello servlet");
+public class HelloServlet implements Servlet {
+    public HelloServlet() {
+        System.out.println("1_构造器方法。。。");
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void init(ServletConfig servletConfig) throws ServletException {
+        System.out.println("2_init方法。。。");
+    }
+
+    @Override
+    public ServletConfig getServletConfig() {
+        return null;
+    }
+
+    @Override
+    public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException {
+//        System.out.println("3_hello servlet!");
+        HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
+        String method = httpServletRequest.getMethod();
+        if ("GET".equalsIgnoreCase(method)){
+            doGet();
+        }else if ("POST".equalsIgnoreCase(method)){
+            doPost();
+        }
+    }
+
+    private void doPost() {
+        System.out.println("POST请求！");
+        System.out.println("POST请求！");
+
+    }
+
+    private void doGet() {
+        System.out.println("GET请求！");
+        System.out.println("GETT请求！");
+    }
+
+    @Override
+    public String getServletInfo() {
+        return null;
+    }
+
+    @Override
+    public void destroy() {
+        System.out.println("4_destroy方法。。");
     }
 }
