@@ -1,4 +1,4 @@
-package com.testcy.controller;
+package com.testcy.servlet;
 
 import com.testcy.pojo.User;
 import com.testcy.service.UserService;
@@ -23,10 +23,10 @@ public class LoginServlet extends HttpServlet {
         User loginUser = userService.login(new User(null, username, password, null));
         if (loginUser==null){
             System.out.println("用户名或密码错误！");
-            req.getRequestDispatcher("/pages/user/login.html").forward(req,resp);
+            req.getRequestDispatcher("/pages/user/login.jsp").forward(req,resp);
         }else {
             System.out.println("登录成功！");
-            req.getRequestDispatcher("/pages/user/login_success.html").forward(req,resp);
+            req.getRequestDispatcher("/pages/user/login_success.jsp").forward(req,resp);
         }
     }
 }
