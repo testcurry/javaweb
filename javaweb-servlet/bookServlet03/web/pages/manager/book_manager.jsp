@@ -10,7 +10,18 @@
         $(function () {
             $("a.deleteClass").click(function () {
                 return confirm("你确定要删除【" + $(this).parent().parent().find("td:first").text() + "】吗？")
-            })
+            });
+
+            $("#targetPageBtn").click(function () {
+                var targetPageNo = $("#pn_input").val();
+                // alert(location.href);
+                /*  if (targetPageNo >= 1 && targetPageNo <=
+                ${requestScope.page.pageTotal}) {
+                    location.href = "
+                ${pageScope.basePath}${requestScope.page.url}&pageNo=" + targetPageNo;
+                }*/
+                location.href = "${pageScope.basePath}${requestScope.page.url}&pageNo=" + targetPageNo;
+            });
         });
     </script>
 </head>
@@ -32,15 +43,15 @@
             <td>库存</td>
             <td colspan="2">操作</td>
         </tr>
-        <c:forEach items="${requestScope.books }" var="book">
+        <c:forEach items="${requestScope.page.items }" var="book">
             <tr>
                 <td>${book.name}</td>
                 <td>${book.price}</td>
                 <td>${book.author}</td>
                 <td>${book.sales}</td>
                 <td>${book.stock}</td>
-                <td><a href="manager/bookServlet?action=getBookById&id=${book.id}">修改</a></td>
-                <td><a class="deleteClass" href="manager/bookServlet?action=delete&id=${book.id}">删除</a></td>
+                <td><a href="manager/bookServlet?action=getBookById&id=${book.id}&pageNo=${requestScope.page.pageNo}">修改</a></td>
+                <td><a class="deleteClass" href="manager/bookServlet?action=delete&id=${book.id}&pageNo=${requestScope.page.pageNo}">删除</a></td>
             </tr>
         </c:forEach>
 
@@ -51,11 +62,16 @@
             <td></td>
             <td></td>
             <td></td>
-            <td><a href="pages/manager/book_edit.jsp">添加图书</a></td>
+            <td><a href="pages/manager/book_edit.jsp?pageNo=${requestScope.page.pageTotal}">添加图书</a></td>
         </tr>
     </table>
+
 </div>
 
+<%-- 分页条--%>
+<%@include file="/pages/common/page_nav.jsp"%>
+<br>
+<%--页脚--%>
 <%@include file="/pages/common/footer.jsp" %>
 </body>
 </html>

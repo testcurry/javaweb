@@ -1,6 +1,7 @@
 package com.testcy.test;
 
 import com.testcy.pojo.Book;
+import com.testcy.pojo.Page;
 import com.testcy.service.BookService;
 import com.testcy.service.impl.BookServiceImpl;
 import org.junit.Test;
@@ -42,5 +43,21 @@ public class BookServiceTest {
         for (Book book:books){
             System.out.println(book);
         }
+    }
+
+    @Test
+    public void page(){
+        Page<Book> page = bookService.page(2, Page.PAGE_SIZE);
+        System.out.println(page);
+
+    }
+
+    @Test
+    public void pageByPrice(){
+        Page<Book> page = bookService.pageByPrice(3, Page.PAGE_SIZE,10,50);
+        System.out.println(page);
+        List<Book> items = page.getItems();
+        items.forEach(System.out::println);
+
     }
 }

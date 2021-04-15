@@ -15,4 +15,12 @@ public interface BookDao {
     public Book queryBookById(Integer id);
 
     public List<Book> queryBooks();
+
+    public Integer queryForPageTotalCount();
+
+    public List<Book> queryForPageItems(int begin,Integer pageSize);
+
+    List<Book> queryForPriceItems(int begin,Integer pageSize,Integer min, Integer max);
+
+    Integer queryForPageTotalByPrice(Integer min, Integer max);
 }

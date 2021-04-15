@@ -34,6 +34,7 @@
         <%--				方案二判断id参数的值是否为空，不为空则为update操作--%>
 <%--        <input type="hidden" name="action" value="${empty param.id ? "add":"update"}">--%>
 <%--            通过request域中有没有book对象判断。如果bookEdit不为空，则为update操作--%>
+            <input type="hidden" name="pageNo" value="${param.pageNo}">
         <input type="hidden" name="action" value="${empty requestScope.bookEdit ? "add":"update"}">
         <input type="hidden" name="id" value="${requestScope.bookEdit.id}">
         <table>

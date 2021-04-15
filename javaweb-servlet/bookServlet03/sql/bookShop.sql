@@ -16,6 +16,7 @@ CREATE TABLE t_user(
 insert into t_user (`username`,`password`,`email`) values('Curry','123456','test@vip.com');
 
 #创建图书数据表t_book
+drop table if exists t_book;
 CREATE TABLE t_book(
                        `id` INT PRIMARY KEY AUTO_INCREMENT,
                        `name` VARCHAR(100),

@@ -20,4 +20,19 @@ public class WebUtils {
         }
         return bean;
     }
+
+    public static int paseInt(String str,int defaultValue){
+
+        if (str!=null&&!"".equals(str)){
+            return Integer.parseInt(str);
+        }
+        return defaultValue;
+
+       /* try {
+            return Integer.parseInt(str);
+        }catch (NumberFormatException e){
+            e.printStackTrace();
+        }
+        return defaultValue;*/
+    }
 }
