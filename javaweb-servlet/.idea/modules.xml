@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/bookServlet/bookServlet.iml" filepath="$PROJECT_DIR$/bookServlet/bookServlet.iml" />
       <module fileurl="file://$PROJECT_DIR$/bookServlet03/bookServlet03.iml" filepath="$PROJECT_DIR$/bookServlet03/bookServlet03.iml" />
       <module fileurl="file://$PROJECT_DIR$/bookStore/bookStore.iml" filepath="$PROJECT_DIR$/bookStore/bookStore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cookie&amp;session/cookie&amp;session.iml" filepath="$PROJECT_DIR$/cookie&amp;session/cookie&amp;session.iml" />
       <module fileurl="file://$PROJECT_DIR$/jsp/jsp.iml" filepath="$PROJECT_DIR$/jsp/jsp.iml" />
       <module fileurl="file://$PROJECT_DIR$/servlet/servlet.iml" filepath="$PROJECT_DIR$/servlet/servlet.iml" />
       <module fileurl="file://$PROJECT_DIR$/servlet1/servlet1.iml" filepath="$PROJECT_DIR$/servlet1/servlet1.iml" />

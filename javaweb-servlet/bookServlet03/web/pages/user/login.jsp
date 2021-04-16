@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <title>尚硅谷会员登录页面</title>
     <%@include file="/pages/common/head.jsp" %>
+
+
 </head>
 <body>
 <div id="login_header">
@@ -22,7 +24,7 @@
             <div class="login_box">
                 <div class="tit">
                     <h1>尚硅谷会员</h1>
-                    <a href="regist.jsp">立即注册</a>
+                    <a href="pages/user/regist.jsp">立即注册</a>
                 </div>
                 <div class="msg_cont">
                     <b></b>
@@ -38,7 +40,7 @@
                         <input class="itxt" type="text" placeholder="请输入用户名" autocomplete="off" tabindex="1"
                                name="username"
                         <%--										   value="<%=request.getAttribute("username")==null?"":request.getAttribute("username")%>--%>
-                        ${requestScope.username}"/>
+                        value="${requestScope.username}"/>
                         <br/>
                         <br/>
                         <label>用户密码：</label>
