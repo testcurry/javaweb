@@ -14,6 +14,11 @@
     </style>
     <script type="text/javascript">
         $(function () {
+            //给验证码图片绑定单击事件
+            $("#code_img").click(function () {
+                this.src = "${basePath}kaptcha.jpg?d="+new Date();
+            });
+
             //给注册按钮绑定单击事件
             $("#sub_btn").click(function () {
                 //1、检查用户名是否合法
@@ -83,7 +88,7 @@
                         <input class="itxt" type="text" placeholder="请输入用户名" autocomplete="off" tabindex="1"
                                name="username" id="username"
                         <%--                        value="<%=request.getAttribute("username")==null?"":request.getAttribute("username")%>"--%>
-<%--                               value="${empty requestScope.username ? '' : requestScope.username}"--%>
+                        <%--                               value="${empty requestScope.username ? '' : requestScope.username}"--%>
                                value="${requestScope.username}" "/>
                         <br/>
                         <br/>
@@ -100,14 +105,15 @@
                         <label>电子邮件：</label>
                         <input class="itxt" type="text" placeholder="请输入邮箱地址" autocomplete="off" tabindex="1"
                                name="email" id="email"
-<%--                               value="<%=request.getAttribute("email")==null?"":request.getAttribute("email")%>"--%>
-<%--                                value="${empty requestScope.email ?'':requestScope.email}--%>
-                                value="${requestScope.email}"/>
+                        <%--                               value="<%=request.getAttribute("email")==null?"":request.getAttribute("email")%>"--%>
+                        <%--                                value="${empty requestScope.email ?'':requestScope.email}--%>
+                               value="${requestScope.email}"/>
                         <br/>
                         <br/>
                         <label>验证码：</label>
-                        <input class="itxt" type="text" style="width: 150px;" name="code" id="code"/>
-                        <img alt="" src="static/img/code.bmp" style="float: right; margin-right: 40px">
+                        <input class="itxt" type="text" style="width: 80px;" name="code" id="code"/>
+                        <img alt="" id="code_img" src="kaptcha.jpg"
+                             style="float: right; margin-right: 40px;width:110px;height:30px;">
                         <br/>
                         <br/>
                         <input type="submit" value="注册" id="sub_btn"/>

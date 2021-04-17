@@ -18,15 +18,21 @@ import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Map;
 
+import static com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY;
+
 public class UserServlet extends BaseServlet {
     private UserService userService = new UserServiceImpl();
 
     protected void regist(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // 获取Session中的验证码
+        String token = (String) req.getSession().getAttribute(KAPTCHA_SESSION_KEY);
+        // 删除 Session中的验证码
+        req.getSession().removeAttribute(KAPTCHA_SESSION_KEY);
+        String code = req.getParameter("code");
         //获取请求参数
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         String email = req.getParameter("email");
-        String code = req.getParameter("code");
         req.setAttribute("username", username);
         req.setAttribute("email", email);
 
@@ -39,7 +45,7 @@ public class UserServlet extends BaseServlet {
         User user = WebUtils.copyParamsToBean(req.getParameterMap(), new User());
         System.out.println("注入之后：" + user);
         //检查验证码是否正确 先写死abcde检查
-        if (code.equalsIgnoreCase("abcde")) {
+        if (token!=null&&token.equalsIgnoreCase(code)) {
             //检查用户名是否可用
             if (userService.existsUser(username)) {
                 //把回显信息保存到request域中
