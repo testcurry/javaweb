@@ -91,3 +91,27 @@ values(null , '人月神话' , '刚哥' , 88.15 , 20 , 80 , 'static/img/default.
 
 ## 查看表内容
 select id,name,author,price,sales,stock,img_path from t_book;
+
+#创建订单数据表
+CREATE TABLE t_order(
+                        `order_id` VARCHAR(50) PRIMARY KEY,
+                        `create_time` DATETIME,
+                        `price` DECIMAL(11,2),
+                        `status` INT,
+                        `user_id` INT,
+                        FOREIGN KEY(`user_id`) REFERENCES t_user(`id`)
+) COMMENT '订单数据表';
+
+
+#创建订单项数据表
+CREATE TABLE t_order_item(
+                             `id` INT PRIMARY KEY AUTO_INCREMENT,
+                             `name` VARCHAR(100),
+                             `count`	INT,
+                             `price`DECIMAL(11,2),
+                             `totalPrice` DECIMAL(11,2),
+                             `order_id`VARCHAR(50),
+                             FOREIGN KEY(`order_id`) REFERENCES t_order(`order_id`)
+
+
+) COMMENT '订单项数据表';
