@@ -14,6 +14,19 @@
     </style>
     <script type="text/javascript">
         $(function () {
+
+            //使用Ajax请求验证用户名是否可用
+            $("#username").blur(function () {
+                var username = this.value;
+                $.getJSON("${basePath}userServlet","action=ajaxExistUsername&username="+username,function (data) {
+                    if (data.existsUser){
+                        $("span.errorMsg").text("用户名不可用！");
+                    }else {
+                        $("span.errorMsg").text("用户名可用！");
+                    }
+                });
+            });
+
             //给验证码图片绑定单击事件
             $("#code_img").click(function () {
                 this.src = "${basePath}kaptcha.jpg?d="+new Date();
@@ -21,6 +34,7 @@
 
             //给注册按钮绑定单击事件
             $("#sub_btn").click(function () {
+
                 //1、检查用户名是否合法
                 var username = $("#username").val();
                 var userpatt = /^\w{5,12}$/;

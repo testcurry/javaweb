@@ -1,5 +1,6 @@
 package com.testcy.servlet;
 
+import com.google.gson.Gson;
 import com.testcy.pojo.User;
 import com.testcy.service.UserService;
 import com.testcy.service.impl.UserServiceImpl;
@@ -16,12 +17,30 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 
 import static com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY;
 
 public class UserServlet extends BaseServlet {
     private UserService userService = new UserServiceImpl();
+
+    /**
+     * 使用Ajax验证用户名是否可用
+     * @param req
+     * @param resp
+     * @throws ServletException
+     * @throws IOException
+     */
+    protected void ajaxExistUsername(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String username = req.getParameter("username");
+        boolean existsUser = userService.existsUser(username);
+        HashMap<String, Object> userMap = new HashMap<>();
+        userMap.put("existsUser",existsUser);
+        Gson gson = new Gson();
+        String userMapjson = gson.toJson(userMap);
+        resp.getWriter().write(userMapjson);
+    }
 
     protected void regist(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // 获取Session中的验证码

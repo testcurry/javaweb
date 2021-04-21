@@ -17,12 +17,23 @@
                 location.href = "${pageScope.basePath}${requestScope.page.url}&pageNo=" + targetPageNo;
             });
 
-            //加入购物车按钮绑定单击事件
+            //加入购物车按钮使用Ajax请求
             $("button.addToCart").click(function () {
                 var bookId = $(this).attr("bookId");
-                location.href = "${basePath}cartServlet?action=addItem&id=" + bookId;
+                $.getJSON("${basePath}cartServlet", "action=ajaxAddItem&id=" + bookId, function (data) {
+                    $("span.cartItemLastName").text(data.lastName);
+                    $("span.cartItemCount").text("您的购物车中有" + data.totalCount + "件商品");
+                    // alert(data.lastName);
+                })
 
             });
+
+            // 加入购物车按钮绑定单击事件
+            <%--$("button.addToCart").click(function () {--%>
+            <%--    var bookId = $(this).attr("bookId");--%>
+            <%--    location.href = "${basePath}cartServlet?action=addItem&id=" + bookId;--%>
+
+            <%--});--%>
         });
     </script>
 </head>
@@ -62,20 +73,19 @@
 
         <div style="text-align: center">
 
-            <c:if test="${not empty sessionScope.cart.items}">
-                <div>
-                    您刚刚将<span style="color: red">${sessionScope.lastName}</span>加入到了购物车中
-                </div>
-                <span>您的购物车中有 ${sessionScope.cart.totalCount} 件商品</span>
-            </c:if>
-
             <c:if test="${empty sessionScope.cart.items}">
+                <span class="cartItemCount"> </span>
                 <div>
-                   <span style="color: red">您当前购物车为空，快去添加吧</span>
+                    <span class="cartItemLastName" style="color: red">您当前购物车为空，快去添加吧</span>
                 </div>
-                <span> </span>
             </c:if>
 
+            <c:if test="${not empty sessionScope.cart.items}">
+                <span class="cartItemCount">您的购物车中有 ${sessionScope.cart.totalCount} 件商品</span>
+                <div>
+                    您刚刚将<span class="cartItemLastName" style="color: red">${sessionScope.lastName}</span>加入到了购物车中
+                </div>
+            </c:if>
         </div>
 
         <%-- 遍历图书的开始     --%>

@@ -1,5 +1,6 @@
 package com.testcy.servlet;
 
+import com.google.gson.Gson;
 import com.testcy.pojo.Book;
 import com.testcy.pojo.Cart;
 import com.testcy.pojo.CartItem;
@@ -11,11 +12,32 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.HashMap;
 
 public class CartServlet extends BaseServlet {
 
     private BookService bookService = new BookServiceImpl();
 //    private Cart cart=new Cart();
+
+
+    protected void ajaxAddItem(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id = WebUtils.paseInt(req.getParameter("id"), 0);
+        Book book = bookService.queryBookById(id);
+        Cart cart = (Cart) req.getSession().getAttribute("cart");
+        if (cart == null) {
+            cart = new Cart();
+            req.getSession().setAttribute("cart", cart);
+        }
+        CartItem cartItem = new CartItem(book.getId(), book.getName(), 1, book.getPrice(), book.getPrice());
+        cart.addItem(cartItem);
+        req.getSession().setAttribute("lastName",cartItem.getName());
+        HashMap<String, Object> cartMap = new HashMap<>();
+        cartMap.put("lastName",cartItem.getName());
+        cartMap.put("totalCount",cart.getTotalCount());
+        Gson gson = new Gson();
+        String cartJsonStr = gson.toJson(cartMap);
+        resp.getWriter().write(cartJsonStr);
+    }
 
     /**
      * 加入购物车
