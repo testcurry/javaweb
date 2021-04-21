@@ -12,6 +12,6 @@ public class TestConnection {
     public void testConn() throws SQLException {
         Connection connection = JDBCUtils.getConnection();
         System.out.println(connection);
-        JDBCUtils.close(connection);
+//        JDBCUtils.close(connection);
     }
 }

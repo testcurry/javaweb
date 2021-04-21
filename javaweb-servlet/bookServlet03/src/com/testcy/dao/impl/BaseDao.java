@@ -20,15 +20,18 @@ public abstract class BaseDao {
      * @return -1为未查到
      */
     public int update(String sql, Object... args) {
+        System.out.println("BaseDao当前线程名："+Thread.currentThread().getName());
         Connection conn = JDBCUtils.getConnection();
         try {
             return queryRunner.update(conn, sql, args);
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            JDBCUtils.close(conn);
+            throw new RuntimeException(e);
         }
-        return -1;
+//        finally {
+//            JDBCUtils.close(conn);
+//        }
+//        return -1;
     }
 
     /**
@@ -48,10 +51,12 @@ public abstract class BaseDao {
             return queryRunner.query(conn, sql, new BeanHandler<T>(type),args);
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            JDBCUtils.close(conn);
+            throw new RuntimeException(e);
         }
-        return null;
+//        finally {
+//            JDBCUtils.close(conn);
+//        }
+//        return null;
     }
 
     /**
@@ -71,10 +76,12 @@ public abstract class BaseDao {
             return queryRunner.query(conn, sql, new BeanListHandler<T>(type), args);
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            JDBCUtils.close(conn);
+            throw new RuntimeException(e);
         }
-        return null;
+//        finally {
+//            JDBCUtils.close(conn);
+//        }
+//        return null;
     }
 
     /**
@@ -89,10 +96,9 @@ public abstract class BaseDao {
             return queryRunner.query(conn,sql,new ScalarHandler<>(),args);
         } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            JDBCUtils.close(conn);
+            throw new RuntimeException(e);
         }
-        return null;
+//        return null;
     }
 
 }
